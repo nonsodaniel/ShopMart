@@ -19,6 +19,8 @@ import { Button } from "@/components/ui/button";
 import { useStoreModal } from "@/hooks/useStoreModal";
 import Modal from "../ui/modal";
 import { Input } from "../ui/input";
+import axios from "axios";
+import toast from "react-hot-toast";
 
 const formSchema = z.object({
   name: z.string().min(1),
@@ -36,8 +38,17 @@ export const StoreModal = () => {
     },
   });
 
-  const onSubmit = async (values: z.infer<typeof formSchema>) => {};
-
+  const onSubmit = async (values: z.infer<typeof formSchema>) => {
+    try {
+      setLoading(true);
+      const response = await axios.post("/api/stores", values);
+      toast.success("Store created successfully");
+    } catch (error) {
+      toast.error("An error occurred! Kindly try again");
+    } finally {
+      setLoading(false);
+    }
+  };
   return (
     <Modal
       title="Create store"
