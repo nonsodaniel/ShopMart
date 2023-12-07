@@ -1,5 +1,4 @@
 "use client";
-import Modal from "@/components/ui/modal";
 import { useStoreModal } from "@/hooks/useStoreModal";
 
 import { useEffect } from "react";
@@ -13,14 +12,5 @@ export default function Home() {
       onOpen();
     }
   }, [isOpen, onOpen]);
-  return (
-    <div className="p-4">
-      <Modal
-        title="A sample modal"
-        description="This is my first sample modal"
-        isOpen
-        onClose={() => null}
-      />
-    </div>
-  );
+  return <div className="p-4">This is my root</div>;
 }
