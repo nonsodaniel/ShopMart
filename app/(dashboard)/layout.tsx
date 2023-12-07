@@ -27,10 +27,5 @@ export default async function DashboardLayout({
     redirect("/");
   }
 
-  return (
-    <>
-      <div className="">Dashboard layout</div>
-      {children}
-    </>
-  );
+  return <>{children}</>;
 }

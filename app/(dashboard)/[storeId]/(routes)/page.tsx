@@ -1,7 +1,12 @@
+import Navbar from "@/components/Navbar";
 import React from "react";
 
-const Dashboard = () => {
-  return <div>Dashboard</div>;
+const Dashboard = async () => {
+  return (
+    <div>
+      <Navbar />
+    </div>
+  );
 };
 
 export default Dashboard;
